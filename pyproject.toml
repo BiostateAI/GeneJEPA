@@ -1,7 +1,7 @@
 [project]
-name = "biobase"
+name = "genejepa"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Predictive World Model of the Transcriptome"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
