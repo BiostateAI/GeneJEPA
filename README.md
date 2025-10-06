@@ -1,7 +1,5 @@
 # GeneJEPA: A Predictive World Model of the Transcriptome
 
-Model card: [elonlit/GeneJEPA](https://huggingface.co/elonlit/GeneJEPA)
-
 [![Hugging Face - Model Card](https://img.shields.io/badge/HuggingFace-Model%20Card-ffcc4d?logo=huggingface&logoColor=white&labelColor=000000)](https://huggingface.co/elonlit/GeneJEPA)
 
 GeneJEPA is a self-supervised foundation model for single-cell RNA-seq that learns to predict representations of masked gene sets from visible context (Joint-Embedding Predictive Architecture, JEPA). Instead of reconstructing noisy counts, the model infers latent structure over cellular state using:
