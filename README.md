@@ -1,4 +1,6 @@
-GeneJEPA: A Predictive World Model of the Transcriptome
+# GeneJEPA: A Predictive World Model of the Transcriptome
+
+Model card: [elonlit/GeneJEPA](https://huggingface.co/elonlit/GeneJEPA)
 
 GeneJEPA is a self-supervised foundation model for single-cell RNA-seq that learns to predict representations of masked gene sets from visible context (Joint-Embedding Predictive Architecture, JEPA). Instead of reconstructing noisy counts, the model infers latent structure over cellular state using:
 
@@ -9,7 +11,7 @@ GeneJEPA is a self-supervised foundation model for single-cell RNA-seq that lear
 Trained on the large-scale Tahoe-100M atlas, GeneJEPA produces transferable embeddings for downstream tasks (annotation, drug response, perturbation reasoning) and supports test-time scaling by rereading more genes while keeping latent computation fixed.
 
 
-### Install
+## Install
 
 Prerequisites:
 - Python ≥ 3.11, PyTorch ≥ 2.6 (CUDA strongly recommended)
@@ -33,7 +35,7 @@ uv pip install umap-learn
 ```
 
 
-### Quickstart
+## Quickstart
 
 1) Authenticate with the Hugging Face Hub (Tahoe-100M manifests are pulled automatically):
 
@@ -52,7 +54,7 @@ Notes:
 - W&B logging is enabled if `wandb` is configured; otherwise training proceeds without it.
 
 
-### Export gene vocabulary map (optional)
+## Export gene vocabulary map (optional)
 
 Write the foundation gene map (and global stats) without training:
 
@@ -65,7 +67,7 @@ python -m genejepa.train \
 ```
 
 
-### Inference: embedding cells from a checkpoint
+## Inference: embedding cells from a checkpoint
 
 ```python
 import torch
@@ -89,7 +91,7 @@ print(emb.shape)
 ```
 
 
-### Project structure
+## Project structure
 
 - `genejepa/models.py`: Perceiver encoder, predictor, JEPA wiring
 - `genejepa/tokenizer.py`: Gene identity + Fourier expression tokenizer
@@ -97,12 +99,16 @@ print(emb.shape)
 - `genejepa/train.py`: PyTorch Lightning training script and CLI utilities
 
 
-### Citation
+## Citation
 
 If you use GeneJEPA, please cite:
 
-Litman E., Myers T., Agarwal V., Gopinath A., Li O., Mittal E., Kassis T. “GeneJEPA: A Predictive World Model of the Transcriptome.”
-
-Pretrained weights and model card: `https://huggingface.co/elonlit/GeneJEPA`
+```bibtex
+@misc{genejepa,
+  title  = {GeneJEPA: A Predictive World Model of the Transcriptome},
+  author = {Litman, E. and Myers, T. and Agarwal, V. and Gopinath, A. and Li, O. and Mittal, E. and Kassis, T.},
+  url    = {https://huggingface.co/elonlit/GeneJEPA}
+}
+```
 
 
