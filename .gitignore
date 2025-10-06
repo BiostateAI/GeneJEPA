@@ -1,0 +1,29 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+hlca/*
+hlca/
+hlcacounts/
+hlcacounts_teacher/
+model_files/
+runs/
+scripts/
+tools/
+test-time-scaling/
+task_label_projection/
+task_perturbation_prediction/
+hf_data_cache/
+Geneformer/
+eval/
+data_hlca/
+data/
+BioLLM/
+bench/
+weights/
+
+# Virtual environments
+.venv
