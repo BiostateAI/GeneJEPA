@@ -111,9 +111,7 @@ If you use GeneJEPA, please cite:
   year      = {2025},
   publisher = {Cold Spring Harbor Laboratory},
   note      = {preprint},
-  doi       = {DOI_TBD},
-  url       = {URL_TBD},
-  eprint    = {EPRINT_TBD}
+  doi       = {10.1101/2025.10.14.682378},
 }
 ```
 
