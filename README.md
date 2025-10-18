@@ -1,6 +1,6 @@
 # GeneJEPA: A Predictive World Model of the Transcriptome
 
-[![Hugging Face - Model Card](https://img.shields.io/badge/HuggingFace-Model%20Card-ffcc4d?logo=huggingface&logoColor=white&labelColor=000000)](https://huggingface.co/elonlit/GeneJEPA)
+[![Hugging Face - Model Card](https://img.shields.io/badge/HuggingFace-Model%20Card-ffcc4d?logo=huggingface&logoColor=white&labelColor=000000)](https://huggingface.co/elonlit/GeneJEPA) [![Paper](https://img.shields.io/badge/Paper-bioRxiv-1e90ff?labelColor=000000)](https://doi.org/10.1101/2025.10.14.682378)
 
 GeneJEPA is a self-supervised foundation model for single-cell RNA-seq that learns to predict representations of masked gene sets from visible context (Joint-Embedding Predictive Architecture, JEPA). Instead of reconstructing noisy counts, the model infers latent structure over cellular state using:
 
@@ -26,12 +26,10 @@ pip install -e .
 pip install umap-learn
 ```
 
-Using uv (optional):
+Using uv (strongly recommended):
 
 ```bash
-uv venv && source .venv/bin/activate
-uv pip install -e .
-uv pip install umap-learn
+uv sync
 ```
 
 
@@ -46,7 +44,7 @@ huggingface-cli login  # or set HUGGINGFACE_HUB_TOKEN
 2) Train (single node; Lightning auto-detects devices):
 
 ```bash
-python -m genejepa.train
+uv run -m genejepa.train
 ```
 
 Notes:
@@ -59,7 +57,7 @@ Notes:
 Write the foundation gene map (and global stats) without training:
 
 ```bash
-python -m genejepa.train \
+uv run -m genejepa.train \
   --export-foundation-map hf_data_cache/foundation_gene_map.parquet \
   --export-global-stats hf_data_cache/global_stats.json \
   --foundation-meta hf_data_cache/data/gene_metadata.parquet \
@@ -97,6 +95,7 @@ print(emb.shape)
 - `genejepa/tokenizer.py`: Gene identity + Fourier expression tokenizer
 - `genejepa/data.py`: Tahoe-100M streaming DataModule (HF Hub)
 - `genejepa/train.py`: PyTorch Lightning training script and CLI utilities
+- `genejepa/configs.py`: Model, training, and data configurations
 
 
 ## Citation
@@ -104,7 +103,7 @@ print(emb.shape)
 If you use GeneJEPA, please cite:
 
 ```bibtex
-@article{Litman2025GeneJEPA,
+@article{GeneJEPA2025,
   title     = {GeneJEPA: A Predictive World Model of the Transcriptome},
   author    = {Litman, E. and Myers, T. and Agarwal, V. and Gopinath, A. and Li, O. and Mittal, E. and Kassis, T.},
   journal   = {bioRxiv},
@@ -114,5 +113,3 @@ If you use GeneJEPA, please cite:
   doi       = {10.1101/2025.10.14.682378},
 }
 ```
-
-
